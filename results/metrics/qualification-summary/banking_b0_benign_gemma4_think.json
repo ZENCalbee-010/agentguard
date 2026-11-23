@@ -1,0 +1,59 @@
+{
+ "gemma4:e4b-it-q4_K_M": {
+  "all_16": {
+   "n": 16,
+   "success": 8,
+   "wilson95": [
+    0.28,
+    0.72
+   ]
+  },
+  "commit": [
+   "d3c489c5ed7de0ed3b29a9325b3afc74c4ee8ba7"
+  ],
+  "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+  "dirty": true,
+  "file": "results/raw/m7-qualification-think/gemma4_e4b-it-q4_K_M-b0-benign-think.jsonl",
+  "invalid_call_rate": 0.0,
+  "median_latency_s": 13.004073499992955,
+  "model": "gemma4:e4b-it-q4_K_M",
+  "params": {
+   "backend": "ollama",
+   "max_output_tokens": 1024,
+   "num_ctx": 12288,
+   "seed": 0,
+   "temperature": 0.0,
+   "think": null
+  },
+  "records": 16,
+  "runs_with_no_tool_call": 6,
+  "strict_11": {
+   "n": 11,
+   "success": 3,
+   "wilson95": [
+    0.1,
+    0.57
+   ]
+  },
+  "successes": [
+   "user_task_10",
+   "user_task_13",
+   "user_task_2",
+   "user_task_5",
+   "user_task_6",
+   "user_task_7",
+   "user_task_8",
+   "user_task_9"
+  ],
+  "tool_calls": 14,
+  "unclean": 0,
+  "valid_13": {
+   "n": 13,
+   "success": 5,
+   "wilson95": [
+    0.18,
+    0.64
+   ]
+  }
+ }
+}

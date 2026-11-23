@@ -1,0 +1,25 @@
+# M8 main experiment (narrower banking study), frozen by commit before the first run. Changing any field
+# after the first run invalidates it (docs/research/m8-analysis-plan.md). Analysis: experiments/scripts/m8/analyze_main.py.
+experiment_id: m8-banking-qwen35
+description: >
+  Frozen TEST split of the AgentDojo banking suite (11 user tasks x 9 injection tasks = 99 attack cases plus 11
+  benign cases), under B0/B1/B2/P1, one repetition, local qwen3.5:9b with thinking off, banking-v2 policies.
+benchmark: agentdojo
+benchmark_version: v1.2.2
+manifest_path: datasets/manifests/banking-v1.json
+manifest_hash: 9db39933c140a2555937fa72b840dc8e584b88eef78d7ff14d8cd43bc389e153
+split: test
+models:
+  - name: qwen3.5:9b
+    num_ctx: 12288
+    think: false
+    temperature: 0.0
+    seed: 0
+    max_output_tokens: 1024
+configs: [B0, B1, B2, P1]
+repetitions: 1                        # a budget choice: qwen3.5:9b is NOT bit-reproducible at temperature 0 / seed 0 (plan section 2)
+max_steps: 10
+max_wall_s: 300
+analyzer_config_hash: 54a3f7c1d1a3    # context analyzer v0.1, parameters fixed a priori (M5)
+policy_version: banking-v2            # approved option A; hash 086eaa0107dd639737c801ea42b7200121e6cc36a8822fab1eea736fefa86f4e
+api_budget_thb: 0                     # no paid calls

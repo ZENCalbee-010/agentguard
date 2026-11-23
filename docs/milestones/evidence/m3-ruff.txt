@@ -1,0 +1,1 @@
+ruff (stdin mode): 37 files checked, 0 problem(s)

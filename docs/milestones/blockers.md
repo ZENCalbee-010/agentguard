@@ -1,0 +1,9 @@
+# Blockers
+
+| ID | Opened | Blocker | Blocks | Workaround / needed | Status |
+|---|---|---|---|---|---|
+| BLK-001 | 2026-11-18 | Native `ruff.exe` → `Access is denied (os error 5)` opening any file under `C:\your-project` (OK via stdin and on copies in %TEMP%; ACLs normal; persists outside the tool sandbox) | Direct local `ruff check .` | `tools/ruff_stdin.py`. Optional human action: check Windows Security → Controlled Folder Access / AV exclusions for `C:\your-project`. | Worked around |
+| BLK-002 | 2026-11-18 | M1 research specification awaits human approval | M2 benchmark decisions that depend on spec; M3+ implementation | Human review of `docs/spec/*` and `docs/research/*`, decisions D-005..D-008 | **Closed 2026-11-18** — user approved D-005..D-008 (δ and REQ-AGT-4 threshold still pending, see D-009) |
+| BLK-003 | 2026-11-18 | No git remote; push needs approval | CI verification (R-12) | Human: create remote + approve push | Open (non-critical) |
+| BLK-004 | 2026-11-18 | `ollama pull qwen3:8b` failed with a network timeout (connectex) and resumes at ~0.5 MB/s; no local model available | M2 §8.2 (LLM smoke test), M4 model qualification | Pull continues in background (`/tmp/pull_qwen3_2.log`); re-check `ollama list`. If the network stays poor, try a smaller model or another network. M3 does not need a model. | **Closed 2026-11-18** — model pulled; smoke test run (M2 §8.2) |
+| BLK-005 | 2026-11-19 | `ollama pull llama3.1:8b` failed (slow network ~0.3 MB/s, then Ollama restart); only one qualified local model | RQ4 model diversity; M7 pilot breadth | Retry `ollama pull llama3.1:8b` (resumes); or choose another ~8B tool-capable model; one model suffices for M5 | Open (non-critical for M5) |

@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentguard"
+version = "0.1.0"
+description = "AgentGuard v3.1 — research prototype: intent-bound tool authorization for mitigating indirect prompt injection in AI agents"
+readme = "README.md"
+# Target is 3.12 (see docs/milestones/decision-log.md D-001); the dev machine currently runs 3.13.
+requires-python = ">=3.12"
+
+dependencies = [
+    "pydantic==2.14.3",
+    "PyYAML==6.0.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.2.0",
+    "ruff==0.17.5",
+    "mypy==2.4.1",
+]
+
+[project.scripts]
+agentguard = "agentguard.cli.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "security: security-invariant tests (SEC-xxx)",
+    "integration: multi-component tests",
+    "regression: regression tests for confirmed defects",
+    "llm: requires a live local model (skipped by default in CI)",
+    "agentdojo: needs the AgentDojo package (.venv-bench); skipped elsewhere",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+# M2 evidence scripts are kept verbatim: committed evidence files in docs/research/evidence/
+# were produced by exactly these scripts, so they are excluded from lint/format on purpose.
+extend-exclude = ["experiments/scripts/m2", "external"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF"]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S311", "S105", "S106", "E501", "RUF012", "SIM117"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
+packages = ["agentguard"]
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["yaml", "agentdojo", "agentdojo.*"]
+ignore_missing_imports = true  # PyYAML has no stubs; agentdojo lives only in .venv-bench

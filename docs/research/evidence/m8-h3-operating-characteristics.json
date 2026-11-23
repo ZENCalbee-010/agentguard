@@ -1,0 +1,50 @@
+{
+ "delta": 0.1,
+ "alpha": 0.05,
+ "berger_boos_gamma": 0.005,
+ "adopted_exact_test": [
+  {
+   "n": 9,
+   "max_type1": 0.0111,
+   "at_total_discordance": 0.94,
+   "max_type1_if_discordance_le_30pct": 0.0003,
+   "power_equal_arms_5pct_each_way": 0.0,
+   "min_p10_only_pairs_needed_with_no_loss": 5
+  },
+  {
+   "n": 30,
+   "max_type1": 0.038,
+   "at_total_discordance": 0.97,
+   "max_type1_if_discordance_le_30pct": 0.0067,
+   "power_equal_arms_5pct_each_way": 0.0505,
+   "min_p10_only_pairs_needed_with_no_loss": 3
+  },
+  {
+   "n": 60,
+   "max_type1": 0.0327,
+   "at_total_discordance": 0.92,
+   "max_type1_if_discordance_le_30pct": 0.0138,
+   "power_equal_arms_5pct_each_way": 0.3728,
+   "min_p10_only_pairs_needed_with_no_loss": 0
+  }
+ ],
+ "rejected_newcombe_hybrid_score": [
+  {
+   "n": 9,
+   "max_type1_by_concordant_mix": {
+    "share_both_0.0": 0.06,
+    "share_both_0.5": 0.3178,
+    "share_both_0.9": 0.0783
+   }
+  },
+  {
+   "n": 30,
+   "max_type1_by_concordant_mix": {
+    "share_both_0.0": 0.0714,
+    "share_both_0.5": 0.1825,
+    "share_both_0.9": 0.0714
+   }
+  }
+ ],
+ "note": "exact multinomial sums, no Monte Carlo; type I error is maximised over total discordance s with the true difference exactly -delta"
+}

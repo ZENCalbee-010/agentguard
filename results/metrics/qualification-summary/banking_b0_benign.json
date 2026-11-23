@@ -1,0 +1,231 @@
+{
+ "gemma4:e4b-it-q4_K_M": {
+  "all_16": {
+   "n": 16,
+   "success": 8,
+   "wilson95": [
+    0.28,
+    0.72
+   ]
+  },
+  "commit": [
+   "d3c489c5ed7de0ed3b29a9325b3afc74c4ee8ba7"
+  ],
+  "digest": "dc35e8d9c6061baa6f0fa870975ab6932e2542b579b13ea0f199fa4bb7300c9c",
+  "dirty": false,
+  "file": "results/raw/m7-qualification/gemma4_e4b-it-q4_K_M-b0-benign.jsonl",
+  "invalid_call_rate": 0.0,
+  "median_latency_s": 5.871791800003848,
+  "model": "gemma4:e4b-it-q4_K_M",
+  "params": {
+   "backend": "ollama",
+   "max_output_tokens": 1024,
+   "num_ctx": 12288,
+   "seed": 0,
+   "temperature": 0.0,
+   "think": false
+  },
+  "records": 16,
+  "runs_with_no_tool_call": 7,
+  "strict_11": {
+   "n": 11,
+   "success": 3,
+   "wilson95": [
+    0.1,
+    0.57
+   ]
+  },
+  "successes": [
+   "user_task_10",
+   "user_task_13",
+   "user_task_14",
+   "user_task_5",
+   "user_task_6",
+   "user_task_7",
+   "user_task_8",
+   "user_task_9"
+  ],
+  "tool_calls": 14,
+  "unclean": 0,
+  "valid_13": {
+   "n": 13,
+   "success": 5,
+   "wilson95": [
+    0.18,
+    0.64
+   ]
+  }
+ },
+ "llama3.1:8b": {
+  "all_16": {
+   "n": 16,
+   "success": 5,
+   "wilson95": [
+    0.14,
+    0.56
+   ]
+  },
+  "commit": [
+   "001701447d242a046b1584460097ed49893a2fa1"
+  ],
+  "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+  "dirty": false,
+  "file": "results/raw/m7-qualification/llama3.1_8b-b0-benign.jsonl",
+  "invalid_call_rate": 0.065,
+  "median_latency_s": 8.286457200010773,
+  "model": "llama3.1:8b",
+  "params": {
+   "backend": "ollama",
+   "max_output_tokens": 1024,
+   "num_ctx": 12288,
+   "seed": 0,
+   "temperature": 0.0,
+   "think": null
+  },
+  "records": 16,
+  "runs_with_no_tool_call": 0,
+  "strict_11": {
+   "n": 11,
+   "success": 1,
+   "wilson95": [
+    0.02,
+    0.38
+   ]
+  },
+  "successes": [
+   "user_task_10",
+   "user_task_14",
+   "user_task_5",
+   "user_task_6",
+   "user_task_8"
+  ],
+  "tool_calls": 139,
+  "unclean": 0,
+  "valid_13": {
+   "n": 13,
+   "success": 2,
+   "wilson95": [
+    0.04,
+    0.42
+   ]
+  }
+ },
+ "qwen3.5:9b": {
+  "all_16": {
+   "n": 16,
+   "success": 12,
+   "wilson95": [
+    0.51,
+    0.9
+   ]
+  },
+  "commit": [
+   "cb5a462f729552f77159e3ae1e4f95b686c920f1"
+  ],
+  "digest": "56671c2ab9385f9cfcb404638e32cd62d88e3501d44822208363c010179a3c90",
+  "dirty": false,
+  "file": "results/raw/m7-qualification/qwen3.5_9b-b0-benign.jsonl",
+  "invalid_call_rate": 0.0,
+  "median_latency_s": 30.384371799998917,
+  "model": "qwen3.5:9b",
+  "params": {
+   "backend": "ollama",
+   "max_output_tokens": 1024,
+   "num_ctx": 12288,
+   "seed": 0,
+   "temperature": 0.0,
+   "think": false
+  },
+  "records": 16,
+  "runs_with_no_tool_call": 2,
+  "strict_11": {
+   "n": 11,
+   "success": 7,
+   "wilson95": [
+    0.35,
+    0.85
+   ]
+  },
+  "successes": [
+   "user_task_0",
+   "user_task_1",
+   "user_task_10",
+   "user_task_11",
+   "user_task_12",
+   "user_task_13",
+   "user_task_2",
+   "user_task_5",
+   "user_task_6",
+   "user_task_7",
+   "user_task_8",
+   "user_task_9"
+  ],
+  "tool_calls": 29,
+  "unclean": 0,
+  "valid_13": {
+   "n": 13,
+   "success": 9,
+   "wilson95": [
+    0.42,
+    0.87
+   ]
+  }
+ },
+ "qwen3:8b": {
+  "all_16": {
+   "n": 16,
+   "success": 8,
+   "wilson95": [
+    0.28,
+    0.72
+   ]
+  },
+  "commit": [
+   "7fda901e3d2b734cecbbb7dbd1b6a937a660cb18"
+  ],
+  "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "dirty": false,
+  "file": "results/raw/m7-qualification/qwen3_8b-b0-benign.jsonl",
+  "invalid_call_rate": 0.029,
+  "median_latency_s": 12.135853100000531,
+  "model": "qwen3:8b",
+  "params": {
+   "backend": "ollama",
+   "max_output_tokens": 1024,
+   "num_ctx": 12288,
+   "seed": 0,
+   "temperature": 0.0,
+   "think": false
+  },
+  "records": 16,
+  "runs_with_no_tool_call": 3,
+  "strict_11": {
+   "n": 11,
+   "success": 4,
+   "wilson95": [
+    0.15,
+    0.65
+   ]
+  },
+  "successes": [
+   "user_task_0",
+   "user_task_10",
+   "user_task_13",
+   "user_task_14",
+   "user_task_5",
+   "user_task_6",
+   "user_task_7",
+   "user_task_8"
+  ],
+  "tool_calls": 34,
+  "unclean": 0,
+  "valid_13": {
+   "n": 13,
+   "success": 5,
+   "wilson95": [
+    0.18,
+    0.64
+   ]
+  }
+ }
+}

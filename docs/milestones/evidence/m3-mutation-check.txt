@@ -1,0 +1,24 @@
+M01  killed    SEC-005/012 explicit deny wins                 FAILED tests/security/test_invariants.py::test_deny_rule_blocks_even_when_policy_would_all
+M02  killed    SEC-005 security args must be constrained      FAILED tests/security/test_invariants.py::test_t005_n_default_deny - Assertio...
+M03  killed    SEC-006 policy deny is final in P1             FAILED tests/integration/test_vertical_slice.py::test_injected_task_outcome_per_configurat
+M04  killed    SEC-013 analyzer failure must deny             FAILED tests/security/test_invariants.py::test_t010_n_denials_invalid_calls_and_errors_are
+M05  killed    SEC-002 decision MAC verified                  FAILED tests/security/test_invariants.py::test_t002_n_executor_refuses_without_valid_decis
+M06  killed    SEC-002 decision is single-use                 FAILED tests/security/test_invariants.py::test_t002_n_denied_decision_cannot_be_executed_a
+M07  killed    SEC-007 decision bound to call/task            FAILED tests/security/test_invariants.py::test_t007_n_scope_and_decisions_do_not_cross_tas
+M08  killed    SEC-003 atomic execution                       FAILED tests/security/test_invariants.py::test_t002_p_allow_decision_applies_effect
+M09  killed    SEC-011 no silent clamp above root             FAILED tests/security/test_invariants.py::test_t004_n_invalid_calls_never_execute_in_any_c
+M10  killed    SEC-011 segment-aware prefix                   FAILED tests/security/test_invariants.py::test_t011_n_traversal_and_lookalike_paths_denied
+M11  killed    SEC-010 hash covers payload                    FAILED tests/security/test_invariants.py::test_t010_n_denials_invalid_calls_and_errors_are
+M12  killed    SEC-013 unexpected validation error fails closed FAILED tests/regression/test_regressions.py::test_rf001_gateway_denies_instead_of_crashing
+M13  killed    SEC-008 grant needs trusted token              FAILED tests/security/test_invariants.py::test_t008_n_forged_or_misbound_tokens_are_reject
+M14  killed    SEC-014 no hidden detector in B0/B2            FAILED tests/security/test_invariants.py::test_t014_n_enforcement_cannot_be_switched_off_b
+M15  killed    SEC-008 task lifecycle needs trusted channel   FAILED tests/security/test_invariants.py::test_t008_n_task_lifecycle_needs_the_trusted_cha
+M16  killed    SEC-015 sandbox bound to one run               FAILED tests/integration/test_vertical_slice.py::test_same_sandbox_cannot_be_shared_betwee
+M17  killed    SEC-012 call budget enforced                   FAILED tests/security/test_boundaries.py::test_ac_m3_16_denied_calls_never_change_state[B2
+M18  killed    SEC-004 unknown arguments rejected             FAILED tests/security/test_invariants.py::test_t004_n_invalid_calls_never_execute_in_any_c
+M19  killed    SEC-001 only task-active calls decided         FAILED tests/security/test_invariants.py::test_t007_n_closed_task_scope_cannot_be_used
+M21  killed    SEC-011 IBAN must be ASCII (RF-002)            FAILED tests/security/test_review_findings.py::test_rv002_iban_with_case_expanding_charact
+M22  killed    SEC-011 email must be ASCII (RF-002)           FAILED tests/security/test_review_findings.py::test_rv002_email_with_unicode_that_lowercas
+M20  killed    SEC-009 untrusted-only context items           FAILED tests/security/test_invariants.py::test_t009_n_context_items_cannot_claim_trust_and
+
+22/22 mutations killed

@@ -1,0 +1,25 @@
+# M7c re-pilot with a stronger local model (D2), banking-v2 policies, banking only. Frozen by commit; changing it after the pilot starts invalidates
+# the run. This is a feasibility pilot on the DEVELOPMENT split, not the main experiment.
+experiment_id: m7c-pilot-qwen35
+description: >
+  Re-pilot after option A: 3 development-split user tasks x 9 injection tasks (27 attack cases) plus their
+  3 benign cases, under B0/B1/B2/P1, one repetition, local qwen3.5:9b with thinking off.
+benchmark: agentdojo
+benchmark_version: v1.2.2
+manifest_path: datasets/manifests/banking-v1.json
+manifest_hash: 9db39933c140a2555937fa72b840dc8e584b88eef78d7ff14d8cd43bc389e153
+split: development
+models:
+  - name: qwen3.5:9b
+    num_ctx: 12288
+    think: false
+    temperature: 0.0
+    seed: 0
+    max_output_tokens: 1024
+configs: [B0, B1, B2, P1]
+repetitions: 1
+max_steps: 10
+max_wall_s: 300
+analyzer_config_hash: 54a3f7c1d1a3   # context analyzer v0.1, parameters fixed a priori (M5)
+policy_version: banking-v2            # option A (user-approved): v1 + five read-only tools
+api_budget_thb: 0                     # no paid calls

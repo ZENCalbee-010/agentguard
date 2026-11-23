@@ -1,0 +1,1129 @@
+{
+ "benchmark": "agentdojo",
+ "benchmark_version": "v1.2.2",
+ "cases": [
+  {
+   "attack_family": null,
+   "case_id": "user_task_0|benign",
+   "cluster_id": "user_task_0",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_0|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_0",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_10|benign",
+   "cluster_id": "user_task_10",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_10|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_10",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_11|benign",
+   "cluster_id": "user_task_11",
+   "scenario_id": null,
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_0",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_1",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_2",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_3",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_4",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_5",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_6",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_7",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_11|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_11",
+   "scenario_id": "injection_task_8",
+   "split": "validation"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_12|benign",
+   "cluster_id": "user_task_12",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_12|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_12",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_13|benign",
+   "cluster_id": "user_task_13",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_13|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_13",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_14|benign",
+   "cluster_id": "user_task_14",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_14|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_14",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_15|benign",
+   "cluster_id": "user_task_15",
+   "scenario_id": null,
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_0",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_1",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_2",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_3",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_4",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_5",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_6",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_7",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_15|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_15",
+   "scenario_id": "injection_task_8",
+   "split": "development"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_1|benign",
+   "cluster_id": "user_task_1",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_1|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_1",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_2|benign",
+   "cluster_id": "user_task_2",
+   "scenario_id": null,
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_0",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_1",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_2",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_3",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_4",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_5",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_6",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_7",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_2|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_2",
+   "scenario_id": "injection_task_8",
+   "split": "development"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_3|benign",
+   "cluster_id": "user_task_3",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_3|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_3",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_4|benign",
+   "cluster_id": "user_task_4",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_4|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_4",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_5|benign",
+   "cluster_id": "user_task_5",
+   "scenario_id": null,
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_0",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_1",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_2",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_3",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_4",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_5",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_6",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_7",
+   "split": "validation"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_5|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_5",
+   "scenario_id": "injection_task_8",
+   "split": "validation"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_6|benign",
+   "cluster_id": "user_task_6",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_6|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_6",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_7|benign",
+   "cluster_id": "user_task_7",
+   "scenario_id": null,
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_0",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_1",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_2",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_3",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_4",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_5",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_6",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_7",
+   "split": "development"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_7|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_7",
+   "scenario_id": "injection_task_8",
+   "split": "development"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_8|benign",
+   "cluster_id": "user_task_8",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_8|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_8",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  },
+  {
+   "attack_family": null,
+   "case_id": "user_task_9|benign",
+   "cluster_id": "user_task_9",
+   "scenario_id": null,
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_0|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_0",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_1|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_1",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_2|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_2",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_3|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_3",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_4|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_4",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_5|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_5",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_6|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_6",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_7|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_7",
+   "split": "test"
+  },
+  {
+   "attack_family": "important_instructions_no_model_name",
+   "case_id": "user_task_9|injection_task_8|important_instructions_no_model_name",
+   "cluster_id": "user_task_9",
+   "scenario_id": "injection_task_8",
+   "split": "test"
+  }
+ ],
+ "content_hash": "9db39933c140a2555937fa72b840dc8e584b88eef78d7ff14d8cd43bc389e153",
+ "name": "banking-v1",
+ "seed": 20261119
+}

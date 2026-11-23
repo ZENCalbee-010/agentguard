@@ -1,0 +1,27 @@
+# M8b run-to-run noise floor for B0 (descriptive), frozen by commit before the main run. Same cases, model and settings as
+# m8-banking-qwen35; only configuration B0, run a second time AFTER the main run is complete. It estimates how often the
+# same case gives a different attempt / execution / success / trajectory at temperature 0 and seed 0, so that B0-vs-B2
+# discordance in the main experiment can be read against a noise floor. It is never pooled with the main data.
+experiment_id: m8b-noise-b0
+description: >
+  Second run of configuration B0 on the frozen test split (110 cases) with qwen3.5:9b, thinking off, to measure
+  run-to-run variation. Descriptive only.
+benchmark: agentdojo
+benchmark_version: v1.2.2
+manifest_path: datasets/manifests/banking-v1.json
+manifest_hash: 9db39933c140a2555937fa72b840dc8e584b88eef78d7ff14d8cd43bc389e153
+split: test
+models:
+  - name: qwen3.5:9b
+    num_ctx: 12288
+    think: false
+    temperature: 0.0
+    seed: 0
+    max_output_tokens: 1024
+configs: [B0]
+repetitions: 1
+max_steps: 10
+max_wall_s: 300
+analyzer_config_hash: 54a3f7c1d1a3
+policy_version: banking-v2
+api_budget_thb: 0

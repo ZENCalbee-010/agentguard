@@ -1,0 +1,44 @@
+M01  killed    SEC-005/012 explicit deny wins                 FAILED tests/security/test_invariants.py::test_deny_rule_blocks_even_when_policy_would_all
+M02  killed    SEC-005 security args must be constrained      FAILED tests/security/test_invariants.py::test_t005_n_default_deny - Assertio...
+M03  killed    SEC-006 policy deny is final in P1             FAILED tests/integration/test_agent_loop.py::test_protected_configurations_enforce_the_bou
+M04  killed    SEC-013 analyzer failure must deny             FAILED tests/security/test_invariants.py::test_t010_n_denials_invalid_calls_and_errors_are
+M05  killed    SEC-002 decision MAC verified                  FAILED tests/security/test_invariants.py::test_t002_n_executor_refuses_without_valid_decis
+M06  killed    SEC-002 decision is single-use                 FAILED tests/security/test_invariants.py::test_t002_n_denied_decision_cannot_be_executed_a
+M07  killed    SEC-007 decision bound to call/task            FAILED tests/security/test_invariants.py::test_t007_n_scope_and_decisions_do_not_cross_tas
+M08  killed    SEC-003 atomic execution                       FAILED tests/security/test_invariants.py::test_t002_p_allow_decision_applies_effect
+M09  killed    SEC-011 no silent clamp above root             FAILED tests/security/test_invariants.py::test_t004_n_invalid_calls_never_execute_in_any_c
+M10  killed    SEC-011 segment-aware prefix                   FAILED tests/security/test_invariants.py::test_t011_n_traversal_and_lookalike_paths_denied
+M11  killed    SEC-010 hash covers payload                    FAILED tests/security/test_invariants.py::test_t010_n_denials_invalid_calls_and_errors_are
+M12  killed    SEC-013 unexpected validation error fails closed FAILED tests/regression/test_regressions.py::test_rf001_gateway_denies_instead_of_crashing
+M13  killed    SEC-008 grant needs trusted token              FAILED tests/security/test_invariants.py::test_t008_n_forged_or_misbound_tokens_are_reject
+M14  killed    SEC-014 no hidden detector in B0/B2            FAILED tests/security/test_invariants.py::test_t014_n_enforcement_cannot_be_switched_off_b
+M15  killed    SEC-008 task lifecycle needs trusted channel   FAILED tests/security/test_invariants.py::test_t008_n_task_lifecycle_needs_the_trusted_cha
+M16  killed    SEC-015 sandbox bound to one run               FAILED tests/integration/test_vertical_slice.py::test_same_sandbox_cannot_be_shared_betwee
+M17  killed    SEC-012 call budget enforced                   FAILED tests/security/test_boundaries.py::test_ac_m3_16_denied_calls_never_change_state[B2
+M18  killed    SEC-004 unknown arguments rejected             FAILED tests/security/test_invariants.py::test_t004_n_invalid_calls_never_execute_in_any_c
+M19  killed    SEC-001 only task-active calls decided         FAILED tests/integration/test_agent_loop.py::test_task_is_closed_after_every_run_including
+M21  killed    SEC-011 IBAN must be ASCII (RF-002)            FAILED tests/security/test_review_findings.py::test_rv002_iban_with_case_expanding_charact
+M22  killed    SEC-011 email must be ASCII (RF-002)           FAILED tests/security/test_review_findings.py::test_rv002_email_with_unicode_that_lowercas
+M23  killed    REQ-ORC-4 model timeout is not a success       FAILED tests/integration/test_agent_loop.py::test_ac_m4_03_model_failures_are_errors_not_s
+M24  killed    REQ-AGT-2 step limit enforced                  FAILED tests/integration/test_agent_loop.py::test_step_limit - AssertionError...
+M25  killed    S-7 analyzer context built from tool results   FAILED tests/integration/test_agent_loop.py::test_analyzer_receives_untrusted_tool_output_
+M26  killed    R-08 context overflow detected                 FAILED tests/unit/test_model_adapter.py::test_bad_responses_raise_specific_errors[response
+M27  killed    REQ-GOV-1 only loopback model servers          FAILED tests/unit/test_model_adapter.py::test_non_loopback_or_non_http_hosts_are_refused[h
+M28  killed    SEC-007 task closed after every run            FAILED tests/integration/test_agent_loop.py::test_task_is_closed_after_every_run_including
+M29  killed    REQ-AGT-2 token limit enforced                 FAILED tests/integration/test_agent_loop.py::test_token_limit - AssertionErro...
+M30  killed    D-012 wildcard only when explicitly written    FAILED tests/integration/test_benign_tasks.py::test_ideal_trajectory_succeeds_and_policy_n
+M31  killed    benign utility rejects out-of-scope state changes FAILED tests/integration/test_benign_tasks.py::test_extra_out_of_scope_effect_makes_the_ta
+M32  killed    benign utility requires a clean completion     FAILED tests/integration/test_benign_tasks.py::test_unclean_status_is_never_utility_even_i
+M33  killed    REQ-CA-1 threshold comparison is inclusive     FAILED tests/unit/test_context_analyzer.py::test_threshold_is_inclusive_at_an_exactly_repr
+M34  killed    analyzer ignores instruction content for read-only calls FAILED tests/unit/test_context_analyzer.py::test_read_only_call_never_reaches_the_threshol
+M35  killed    S1 provenance requires value absent from the prompt FAILED tests/unit/test_context_analyzer.py::test_value_present_in_the_trusted_prompt_does_
+M36  killed    analyzer input size bounded                    FAILED tests/unit/test_context_analyzer.py::test_content_beyond_the_size_cap_is_not_scanne
+M37  killed    REQ-ORC-4 unclean attack runs excluded from ASR FAILED tests/unit/test_evaluation_infra.py::test_unclean_runs_are_excluded_from_numerator_
+M38  killed    paired analysis drops unclean pairs            FAILED tests/unit/test_evaluation_infra.py::test_pairing_drops_unclean_and_unmatched_pairs
+M39  killed    exact McNemar uses the smaller tail            FAILED tests/unit/test_evaluation_infra.py::test_real_paired_comparison_b0_vs_b2
+M40  killed    REQ-EVL-5 manifest tampering detected          FAILED tests/unit/test_evaluation_infra.py::test_manifest_seal_verify_roundtrip_and_tamper
+M41  killed    config must match the frozen manifest hash     FAILED tests/unit/test_evaluation_infra.py::test_config_must_match_the_sealed_manifest
+M42  killed    splits are decided per cluster                 FAILED tests/unit/test_evaluation_infra.py::test_manifest_seal_verify_roundtrip_and_tamper
+M20  killed    SEC-009 untrusted-only context items           FAILED tests/security/test_invariants.py::test_t009_n_context_items_cannot_claim_trust_and
+
+42/42 mutations killed
