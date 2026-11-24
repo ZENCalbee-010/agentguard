@@ -7,6 +7,7 @@ Every normalizer raises :class:`NormalizationError` on anything it cannot make c
 
 from __future__ import annotations
 
+import json
 import re
 from decimal import Decimal, InvalidOperation
 from typing import Any
@@ -180,3 +181,40 @@ def normalize_account(value: Any) -> str:
     if not name or len(name) > _MAX_ACCOUNT_NAME or _CONTROL_RE.search(name):
         raise NormalizationError("malformed account name")
     return name
+
+
+_MAX_LIST_ITEMS = 64
+
+
+def _coerce_list(value: Any, what: str) -> list[Any]:
+    if isinstance(value, str):
+        stripped = value.strip()
+        if stripped.startswith("["):
+            try:
+                parsed = json.loads(stripped)
+            except json.JSONDecodeError as exc:
+                raise NormalizationError(f"{what} is not valid JSON list") from exc
+            if isinstance(parsed, list):
+                return parsed
+        raise NormalizationError(f"{what} must be a list")
+    if isinstance(value, list | tuple):
+        return list(value)
+    raise NormalizationError(f"{what} must be a list, got {type(value).__name__}")
+
+
+def normalize_string_list(value: Any) -> str:
+    """Canonical JSON list of validated text items (preserves order)."""
+    items = _coerce_list(value, "string list")
+    if len(items) > _MAX_LIST_ITEMS:
+        raise NormalizationError("string list too long")
+    cleaned = [normalize_text(x) for x in items]
+    return json.dumps(cleaned, ensure_ascii=True, separators=(",", ":"))
+
+
+def normalize_email_list(value: Any) -> str:
+    """Canonical sorted unique JSON list of normalized ASCII emails (SEC-011)."""
+    items = _coerce_list(value, "email list")
+    if not items or len(items) > _MAX_LIST_ITEMS:
+        raise NormalizationError("email list must be non-empty and bounded")
+    cleaned = sorted({normalize_email(x) for x in items})
+    return json.dumps(cleaned, ensure_ascii=True, separators=(",", ":"))

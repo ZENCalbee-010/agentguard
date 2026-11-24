@@ -15,6 +15,7 @@ banking security predicates that are looser than their text (F-4) keep their nat
 
 from __future__ import annotations
 
+import json
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
 from decimal import Decimal
@@ -128,8 +129,19 @@ def build_registry(suite: Any | None = None) -> ToolRegistry:
     return ToolRegistry(specs)
 
 
-def _typed(registry: ToolRegistry, tool: str, args: Mapping[str, str]) -> dict[str, Any]:
-    """Normalized string arguments -> the Python types AgentDojo's function expects."""
+def _typed(
+    registry: ToolRegistry,
+    tool: str,
+    args: Mapping[str, str],
+    raw_args: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Normalized string arguments -> the Python types AgentDojo's function expects.
+
+    For EMAIL_LIST, authorization ran on canonical lower-cased ASCII addresses (SEC-011);
+    we pass stripped validated ASCII items preserving original case because AgentDojo's
+    native travel security predicate checks ``"janeLong@google.com" in email.recipients``
+    case-sensitively.
+    """
     spec = registry.spec(tool)
     assert spec is not None  # noqa: S101 - the call was validated against this registry
     out: dict[str, Any] = {}
@@ -141,6 +153,12 @@ def _typed(registry: ToolRegistry, tool: str, args: Mapping[str, str]) -> dict[s
             out[name] = value == "true"
         elif ptype is T.AMOUNT:
             out[name] = float(Decimal(value))
+        elif (
+            ptype is T.EMAIL_LIST and raw_args is not None and isinstance(raw_args.get(name), list)
+        ):
+            out[name] = [str(x).strip() for x in raw_args[name]]
+        elif ptype in (T.STRING_LIST, T.EMAIL_LIST):
+            out[name] = json.loads(value)
         else:
             out[name] = value
     return out
@@ -184,7 +202,7 @@ class GatedToolRunner:
             return DENIED_MESSAGE, None
         self.gateway.consume(d, res.call)  # signed, single-use, bound to this exact call
         result, error = runtime.run_function(
-            env, function, _typed(self.registry, function, res.call.args)
+            env, function, _typed(self.registry, function, res.call.args, res.call.raw_args)
         )
         text = tool_result_to_str(result) if error is None else f"Error: {error}"
         self.context.append(

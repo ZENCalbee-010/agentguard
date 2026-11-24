@@ -17,10 +17,12 @@ from agentguard.normalize import (
     normalize_amount,
     normalize_bool,
     normalize_email,
+    normalize_email_list,
     normalize_iban,
     normalize_integer,
     normalize_path,
     normalize_relpath,
+    normalize_string_list,
     normalize_text,
 )
 from agentguard.policy.schemas import NormalizedCall, ToolCall
@@ -38,6 +40,8 @@ class ParamType(StrEnum):
     BOOL = "bool"
     RELPATH = "relpath"  # relative file name (benchmark file systems)
     ACCOUNT = "account"  # IBAN or payee name
+    STRING_LIST = "string_list"  # list of strings (JSON canonicalized)
+    EMAIL_LIST = "email_list"  # non-empty sorted unique list of ASCII emails
 
 
 NORMALIZERS: Mapping[ParamType, Callable[[Any], str]] = {
@@ -50,6 +54,8 @@ NORMALIZERS: Mapping[ParamType, Callable[[Any], str]] = {
     ParamType.BOOL: normalize_bool,
     ParamType.RELPATH: normalize_relpath,
     ParamType.ACCOUNT: normalize_account,
+    ParamType.STRING_LIST: normalize_string_list,
+    ParamType.EMAIL_LIST: normalize_email_list,
 }
 
 
@@ -100,6 +106,8 @@ class ToolRegistry:
             ParamType.BOOL: "true or false",
             ParamType.RELPATH: "file name",
             ParamType.ACCOUNT: "IBAN or payee name",
+            ParamType.STRING_LIST: "list of strings",
+            ParamType.EMAIL_LIST: "list of e-mail addresses",
         }
         out = []
         for spec in self._specs.values():
@@ -143,7 +151,7 @@ class ToolRegistry:
             raise InvalidCallError(f"unexpected arguments for {spec.name}: {unknown}")
         normalized: dict[str, str] = {}
         for pname, pspec in spec.params.items():
-            if pname not in raw.args:
+            if pname not in raw.args or (not pspec.required and raw.args[pname] is None):
                 if pspec.required:
                     raise InvalidCallError(f"missing required argument {pname!r} for {spec.name}")
                 continue
