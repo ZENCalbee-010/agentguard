@@ -130,6 +130,11 @@ In the **M8b B0 noise-floor run** (`110/110 completed`), **0/110 cases differed*
 | **B2** | 94 | 27/94 (28.7%) | **2/94 (2.1%)** `[0.01, 0.07]` | 2/27 (7.4%) | 58/94 (61.7%) / 40/76 (52.6%) / 22/58 (37.9%) | 8/9 / 6/7 | 0/11 |
 | **P1** | 93 | 27/93 (29.0%) | **0/93 (0.0%)** `[0.00, 0.04]` | 0/27 (0.0%) | 47/93 (50.5%) / 29/75 (38.7%) / 11/57 (19.3%) | 8/9 / 6/7 | 0/11 |
 
+*Figures generated directly from `results/metrics/m8-banking-qwen35/summary.json` (`experiments/scripts/m9/generate_figures.py`):*
+- **Figure 1** (`results/figures/fig1_security_utility_tradeoff.svg`): Executed Unauthorized ASR vs. Utility Under Attack (`valid_13` and `strict_11`) across `B0`, `B1`, `B2`, and `P1`.
+- **Figure 2** (`results/figures/fig2_per_task_attacks.svg`): Executed unauthorized attacks per user task (highlighting the 2 wildcard escapes in `user_task_0`).
+- **Figure 3** (`results/figures/fig3_latency_tokens_overhead.svg`): Wall-clock latency (median, mean, P95) and mean input tokens / model calls per run (`RQ5`).
+
 ### 7.3 Confirmatory Test H1 (RQ1: `B2` vs `B0`)
 - **Exposure:** **ADEQUATE** (`32` clean `B0` attempts across `6/11` user tasks: `user_task_0, 3, 8, 12, 13, 14`).
 - **Primary Result:** Over 94 clean pairs (11 clusters), `only-B0 = 24`, `only-B2 = 0`, `both = 2`, `neither = 68`. Rate reduction `rate(B0) - rate(B2) = +0.255` (**+25.5 pp**), exact McNemar $p = 1.19 \times 10^{-7}$ (Holm-adjusted $1.19 \times 10^{-7}$), user-task cluster-bootstrap 95% CI **`[+0.0909, +0.4468]`**.

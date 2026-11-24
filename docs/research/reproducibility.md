@@ -70,6 +70,11 @@ Every number in `docs/research/m8-main-report.md` and `paper/draft.md` is determ
 # Verify exact match with committed artifacts
 diff -u results/metrics/m8-banking-qwen35/summary.json /tmp/m8-recompute/summary.json
 diff -u results/metrics/m8b-noise-b0/noise_floor.json /tmp/m8-recompute/noise_floor.json
+
+# Regenerate SVG figures from validated summary.json
+.venv/bin/python experiments/scripts/m9/generate_figures.py \
+  --summary results/metrics/m8-banking-qwen35/summary.json \
+  --out /tmp/m8-recompute/figures
 ```
 
 ## 4. Re-Running M8 & M8b Live Against Local Ollama
@@ -112,3 +117,4 @@ ollama list   # verify ID starts with 56671c2ab938
 | Main report | Detailed statistical & failure analysis | `docs/research/m8-main-report.md` | — |
 | Final audit | Evidence-based audit (architecture, invariants, integrity) | `docs/research/final-audit.md` | — |
 | Draft paper | 11-section research paper draft | `paper/draft.md` | — |
+| Publication figures | 3 SVG charts generated from `summary.json` | `results/figures/fig{1,2,3}_*.svg` | `experiments/scripts/m9/generate_figures.py` |

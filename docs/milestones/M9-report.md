@@ -10,6 +10,7 @@ Status: **PASS** (Research prototype, empirical evidence, audit report, reproduc
 | Final evidence-based audit | `docs/research/final-audit.md` | 10-point audit matrix + formal findings register (`AUD-001`..`AUD-006`) |
 | Reproducibility guide & artifact manifest | `docs/research/reproducibility.md` | Clean-room setup, offline recomputation commands, SHA-256 manifest |
 | Draft research paper (11 sections) | `paper/draft.md` | Abstract through References; 30 verified citations; zero fabricated figures/DOIs |
+| Publication SVG figures & generator | `results/figures/fig{1,2,3}_*.svg`, `experiments/scripts/m9/generate_figures.py` | Generated strictly from `summary.json`; zero extra dependencies; valid XML |
 | Updated project README | `README.md` | Reflects M8/M8b verified results and M9 deliverables while preserving all existing links |
 | Final test report & milestone status | `docs/milestones/M9-report.md`, `status.md`, `next-actions.md`, `risk-register.md` | Complete provenance through M9 |
 
