@@ -1,8 +1,8 @@
 # Project Status
 
 ## Current
-- **Milestone:** M8 - Main experiment (narrower banking study, qwen3.5:9b) -> **PASS (COMPLETE)**; next: **M9 - Final Audit and Research Package**
-- **Branch:** `feat/m8-banking-qwen35` (not pushed; see D-021 regarding `main` having data commit `f79fa70`)
+- **Milestone:** M9 - Final Audit and Research Package -> **PASS (COMPLETE — M0–M9 done for the narrower banking study)**
+- **Branch:** `feat/m8-banking-qwen35` (not pushed; see D-021 / AUD-005 regarding `main` having data commit `f79fa70`)
 - **Freeze tag:** `m8-freeze` (`a1a105f25d56ef1244887cf901091c4f4ab811a3`)
 - **Last updated:** 2026-11-24
 
@@ -116,3 +116,10 @@ Current commit SHA: see `git log -1` (recorded in the milestone report).
 - Tests executed (macOS venvs): core pytest 414 + 26 model_adapter (outside sandbox); bench pytest 89 passed; mypy strict clean (42 files); `tools/ruff_stdin.py` 0 problems (67 files).
 - Cost: 0 THB (3.58 h local Apple M2 Pro compute).
 - Open / next: M9 Final Audit and Research Package (`docs/research/final-audit.md`, `reproducibility.md`, `paper/draft.md`); user decision on whether to reset local `main` back to `origin/main` (`f49788c`, D-021) and whether to push/merge.
+
+### 2026-11-24 - M9 Final Audit and Research Package - PASS
+- Completed: 10-point evidence-based self-audit (`docs/research/final-audit.md`, findings `AUD-001`..`AUD-006`), clean-room reproducibility guide & SHA-256 artifact manifest (`docs/research/reproducibility.md`), 11-section draft research paper with 30 verified citations (`paper/draft.md`), updated `README.md`, and final test/milestone report (`docs/milestones/M9-report.md`).
+- Tests & checks executed: core pytest **415 passed, 2 skipped** (`16.14s`); bench pytest **89 passed** (`1.97s`); `tools/mutation_check.py` **42/42 killed**; `mypy --strict` **0 issues (42 files)**; `tools/ruff_stdin.py` **0 problems (67 files)**; offline recomputation of `summary.json` and `noise_floor.json` verified byte-identical against committed outputs.
+- Frozen integrity: `git diff m8-freeze HEAD -- SRC_PATHS` empty.
+- Cost: 0 THB (cumulative project API spend: 0 / 3,000 THB).
+- Remaining human decisions (post-M9): reset local `main` to `origin/main` (`f49788c`), approve adding frozen `experiments/scripts/m6..m8` to ruff `extend-exclude` (`AUD-003`), approve push/merge (`BLK-003`), and optional future follow-up studies (analyzer `v0.2`, additional suites, second qualified model / paid API validation).

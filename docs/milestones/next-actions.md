@@ -1,13 +1,13 @@
 # Next Actions
 
-## M9 — Final Audit and Research Package
-1. Perform evidence-based final audit across architecture, SEC-001..SEC-015, test quality, mutation check (`tools/mutation_check.py`), benchmark compatibility claims, experimental integrity, statistical methods, related work, and contribution claims -> `docs/research/final-audit.md`.
-2. Write clean-room reproducibility guide referencing frozen commits, digests, SHA-256 hashes, and exact commands -> `docs/research/reproducibility.md`.
-3. Update `README.md` with verified M8 results, installation, and reproduction instructions (preserving existing links).
-4. Draft research paper (`paper/draft.md`) following the 11-section structure (Abstract through References) using only verifiable references from `docs/research/related-work-matrix.md` and actual M8/M8b data; report honest B2 vs P1 trade-off and all Section 9 caveats.
-5. Prepare final test report, updated risk register, and research artifact manifest.
+All planned milestones (**M0–M9**) for the approved narrower banking study (`qwen3.5:9b`, AgentDojo banking v1.2.2) are **PASS / COMPLETE** on branch `feat/m8-banking-qwen35`.
 
-## For the user (optional / pending approvals)
-- **Git `main` cleanup:** Local `main` currently points at `f79fa70` (1 commit ahead of `origin/main` `f49788c`, containing only the M8 raw data file) because `HEAD` was switched to `main` externally during the M8 run. Confirm if you want `main` reset back to `f49788c` (the data is safely on `feat/m8-banking-qwen35`).
-- **Push / merge & CI verification (BLK-003):** Requires explicit human approval before pushing `feat/m8-banking-qwen35` or merging into `main`.
-- **Optional follow-up experiments (out of current scope, need approval):** Option C (additional AgentDojo suites), Option G (paid API validation within 3,000 THB budget), or a second-generation context analyzer (v0.2) tuned on the development split to address R-28.
+## Pending Human Decisions (No Action Taken Without Approval)
+1. **Git `main` cleanup (`AUD-005` / `D-021`):** Confirm whether to reset local `main` from `f79fa70` back to `origin/main` (`f49788c`) before merging or pushing.
+2. **CI lint scope (`AUD-003`):** Approve adding `experiments/scripts/m6`, `m7`, `m8` to `extend-exclude` in `pyproject.toml` (matching `m2`) so GitHub Actions `ruff check .` passes without touching frozen protocol scripts.
+3. **Push / merge & remote CI (`BLK-003` / `AUD-004`):** Approve pushing `feat/m8-banking-qwen35` (and optionally tag `m8-freeze`) to remote to verify `.github/workflows/{ci,security}.yml`.
+4. **Full-text related-work check before external paper submission:** Verify abstract-only matrix cells for DRIFT, IGTA, Progent, and LlamaFirewall against full PDFs before submitting `paper/draft.md`.
+
+## Optional Future Research Extensions (Out of Current Frozen Scope)
+- **Analyzer v0.2 (`AUD-001` / `R-28`):** Design and tune an argument-scoped provenance detector on the development split only (restricting `ANALYZER_DENY` to wildcard/tainted parameters) to eliminate the `-13.3` to `-17.5 pp` attack-time utility loss.
+- **Cross-model & cross-suite generalization (`RQ4` / `R-30`):** Evaluate additional qualified local models or an approved paid API model (within the 3,000 THB budget, currently 0 THB spent) and adapt AgentDojo `workspace`, `travel`, and `slack` suites.
