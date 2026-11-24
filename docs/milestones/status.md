@@ -1,8 +1,8 @@
 # Project Status
 
 ## Current
-- **Milestone:** M9 - Final Audit and Research Package -> **PASS (COMPLETE — M0–M9 done for the narrower banking study)**
-- **Branch:** `feat/m8-banking-qwen35` (not pushed; see D-021 / AUD-005 regarding `main` having data commit `f79fa70`)
+- **Milestone:** M0–M9 **PASS** (`feat/m8-banking-qwen35`, remote CI verified green); Post-M9 Follow-up **M10** (`feat/m10-v02-and-travel`) **IN PROGRESS** (`v0.2` dev + test complete; `travel` adapter + qualification 16/20 complete; `travel` factorial run ready)
+- **Branch:** `feat/m10-v02-and-travel` (pushed to `origin`; `feat/m8-banking-qwen35` + `m8-freeze` pushed & CI green; local `main` reset to `f49788c`)
 - **Freeze tag:** `m8-freeze` (`a1a105f25d56ef1244887cf901091c4f4ab811a3`)
 - **Last updated:** 2026-11-24
 
@@ -123,3 +123,10 @@ Current commit SHA: see `git log -1` (recorded in the milestone report).
 - Frozen integrity: `git diff m8-freeze HEAD -- SRC_PATHS` empty.
 - Cost: 0 THB (cumulative project API spend: 0 / 3,000 THB).
 - Remaining human decisions (post-M9): reset local `main` to `origin/main` (`f49788c`), approve adding frozen `experiments/scripts/m6..m8` to ruff `extend-exclude` (`AUD-003`), approve push/merge (`BLK-003`), and optional future follow-up studies (analyzer `v0.2`, additional suites, second qualified model / paid API validation).
+
+### 2026-11-24 - Post-M9 Follow-Up (D-022): CI Green, ContextAnalyzer v0.2, & Travel Suite Qualification
+- Track 1 (CI & Git): excluded frozen M6–M8 scripts in `pyproject.toml`, reset local `main` to `f49788c`, pushed `feat/m8-banking-qwen35` + `m8-freeze` to GitHub; both `ci` (Python 3.12/3.13) and `security` workflows passed green (`BLK-003` closed).
+- Track 2 (`ContextAnalyzerV2`, `v0.2+07aad61880e0`): dev-split pilot (120 runs) recovered 8/8 `user_task_2` rent updates (`P1` util under attack 16/26 vs 9/26 in v0.1, 0/26 executed). Frozen test split (220 runs `B1`/`P1`): `0/93` executed attacks, cut `P1` `ANALYZER_DENY` by 50% (`40 -> 20`), recovered `user_task_12` & `14`, while isolating all 8 remaining losses to short dual-content file `user_task_13` (`docs/research/m10-v02-report.md`).
+- Track 3 (`AgentDojo travel` suite): implemented `travel_policies.py` (`travel-v1`), `agentdojo_travel.py`, `travel-v1.json` (140 cases, 0 F-6 no-op defects, 20/20 injectable, 120/120 B0 parity, 4/120 B2 static ceiling, 112 bench tests passing). B0 qualification on `qwen3.5:9b`: **16/20 (80.0%, Wilson CI `[0.58, 0.92]`)**, `0/118` invalid calls.
+- Cost: 0 THB (local Apple M2 Pro compute).
+- Next: run `travel` test-split factorial (`77 cases x 4 = 308 runs`, 0 THB) when ready, then integrate M10 results into `paper/draft.md`.
