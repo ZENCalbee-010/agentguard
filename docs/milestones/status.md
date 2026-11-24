@@ -1,10 +1,10 @@
 # Project Status
 
 ## Current
-- **Milestone:** M8 - Main experiment (narrower banking study, qwen3.5:9b) -> **FROZEN, run pending** (user chose this scope; the agent's reading of that choice as approval of E is D-020 and is open to correction)
-- **Branch:** `feat/m8-banking-qwen35` (stacked on M7d; not pushed; no remote)
-- **Freeze tag:** `m8-freeze` (SHA recorded below once created)
-- **Last updated:** 2026-11-19
+- **Milestone:** M8 - Main experiment (narrower banking study, qwen3.5:9b) -> **PASS (COMPLETE)**; next: **M9 - Final Audit and Research Package**
+- **Branch:** `feat/m8-banking-qwen35` (not pushed; see D-021 regarding `main` having data commit `f79fa70`)
+- **Freeze tag:** `m8-freeze` (`a1a105f25d56ef1244887cf901091c4f4ab811a3`)
+- **Last updated:** 2026-11-24
 
 ## Log
 
@@ -103,3 +103,16 @@ Current commit SHA: see `git log -1` (recorded in the milestone report).
 - Done: pre-registered analysis plan, frozen test-split config (110 cases x 4 = 440 runs), guarded runner, integrity-gated analysis, exact non-inferiority test with exact operating characteristics, noise-floor design. Adversarial pre-registration review (5 lenses, 38 findings, 6 major) applied. Details: `docs/research/m8-analysis-plan.md`.
 - Gates: pytest all green, ruff 0, mypy strict clean.
 - Not run yet: the 440 runs (about 6 h) and the B0 noise-floor run (about 1.5 h).
+
+### 2026-11-24 - M8 Main Experiment & Statistical Analysis (narrower banking study, qwen3.5:9b) - PASS
+- Completed: recreated `.venv` and `.venv-bench` on macOS (Apple M2 Pro, Python 3.14.6, D-021), pulled pinned `qwen3.5:9b` (`56671c2ab938`), tagged `m8-freeze` (`a1a105f`), ran 440/440 main experiment runs (`2.95 h`, 423 completed, 17 `step_limit`, 0 infra failures), ran 110/110 M8b B0 noise-floor runs (`0.63 h`, 110 completed), ran `noise_floor.py` and `analyze_main.py --frozen-commit m8-freeze` (exit 0, `INTEGRITY: OK`), wrote `docs/research/m8-main-report.md` and `docs/milestones/M8-report.md`.
+- Key results:
+  - Noise floor (M8b): 0/110 differences across status/attempt/executed/success/trajectory/tokens (exact 95% CI `[0.000, 0.033]`).
+  - Exposure: ADEQUATE (32 B0 attempts in 6/11 user tasks).
+  - H1 (confirmatory, B2 vs B0 executed ASR): **SUPPORTED (robust to cluster sign test and two-way bootstrap)** — B0 31/99 (31.3%) vs B2 2/94 (2.1%), diff `+25.5 pp`, McNemar $p = 1.19 \times 10^{-7}$, cluster CI `[0.0909, 0.4468]`, sign test $p = 0.03125$, two-way CI `[0.0707, 0.4945]`; worst-case unclean bound `+24.2 pp`, $p = 1.19 \times 10^{-7}$.
+  - H2 (descriptive, P1 vs B2 executed ASR): B2 2/94 vs P1 0/93 (`+2.1 pp`, $p = 0.50$, cluster CI `[0.0, 0.0652]`); both B2 escapes were wildcard `send_money` in `user_task_0`.
+  - H3 (descriptive, P1 vs B0 benign utility): 8/9 `valid_13`, 6/7 `strict_11` in all 4 configs (0 benign denials), exact one-sided 95% lower bound `-0.386` / `-0.466`.
+  - Attribution finding: `B1` and `P1` produced 110/110 identical trajectories; P1 lost 10 legitimate tasks under attack vs B2 (`-13.3 pp` `valid_13`, `-17.5 pp` `strict_11`, $p = 0.00195$), whereas B2 preserved 100% of clean attack-time utility vs B0 (`+0.0 pp`).
+- Tests executed (macOS venvs): core pytest 414 + 26 model_adapter (outside sandbox); bench pytest 89 passed; mypy strict clean (42 files); `tools/ruff_stdin.py` 0 problems (67 files).
+- Cost: 0 THB (3.58 h local Apple M2 Pro compute).
+- Open / next: M9 Final Audit and Research Package (`docs/research/final-audit.md`, `reproducibility.md`, `paper/draft.md`); user decision on whether to reset local `main` back to `origin/main` (`f49788c`, D-021) and whether to push/merge.
