@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import time
 import uuid
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -32,6 +33,7 @@ from agentguard.agent.model_adapter import (
 )
 from agentguard.benchmarks import agentdojo_banking as ab
 from agentguard.benchmarks.banking_policies import POLICY_VERSION, policies_hash, policy_for
+from agentguard.defense.authorization_gateway import ContextAnalyzer
 from agentguard.defense.context_analyzer import ContextAnalyzerV0
 from agentguard.evaluation.records import ExperimentRecord, ModelInfo, ToolAttempt
 from agentguard.policy.schemas import GatewayMode, ToolCall
@@ -159,12 +161,14 @@ def run_case(
     max_iters: int = 10,
     timeout_s: float = 240.0,
     policy_version: str = POLICY_VERSION,
+    analyzer_factory: Callable[[Any], ContextAnalyzer] | None = None,
 ) -> ExperimentRecord:
     suite = suite or ab.load_suite()
     registry = registry or ab.build_registry(suite)
     task = suite.user_tasks[user_task_id]
     inj = suite.injection_tasks[injection_task_id] if injection_task_id else None
-    analyzer = ContextAnalyzerV0(registry) if mode in (GatewayMode.B1, GatewayMode.P1) else None
+    factory = analyzer_factory or ContextAnalyzerV0
+    analyzer = factory(registry) if mode in (GatewayMode.B1, GatewayMode.P1) else None
     gate = ab.build_gate(mode, registry, analyzer)
     runner = gate.runner(task.PROMPT, policy_for(user_task_id, policy_version))
     llm = OllamaPipelineLLM(adapter, timeout_s)
@@ -215,6 +219,10 @@ def run_case(
         f"{user_task_id}|{injection_task_id}|{ATTACK_FAMILY}" if inj else f"{user_task_id}|benign"
     )
     clean = status == "completed"
+    analyzer_cfg = getattr(analyzer, "config", None) if analyzer is not None else None
+    analyzer_ver = (
+        f"{analyzer_cfg.version}+{analyzer_cfg.config_hash}" if analyzer_cfg is not None else None
+    )
     return ExperimentRecord(
         experiment_id=experiment_id,
         run_id=uuid.uuid4().hex,
@@ -227,9 +235,7 @@ def run_case(
         model=ModelInfo(model_id=adapter.model_id, digest=adapter.digest(), params=adapter.params),
         config_id=mode.value,
         policy_hash=policy_hash,
-        analyzer_version=(analyzer.config.version + "+" + analyzer.config.config_hash)
-        if analyzer
-        else None,
+        analyzer_version=analyzer_ver,
         code_commit=version.get("commit"),
         code_dirty=bool(version.get("dirty", True)),
         seed=int(adapter.params.get("seed", 0)),
