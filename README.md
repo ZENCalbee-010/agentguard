@@ -12,7 +12,7 @@
 [![Project](https://img.shields.io/badge/Project-Research%20Prototype-4F46E5?style=for-the-badge)](docs/milestones/status.md)
 ![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Sandbox](https://img.shields.io/badge/Execution-Mock%20Sandbox-059669?style=for-the-badge)
-![Status](https://img.shields.io/badge/Main%20Study-M8%20Pending-F59E0B?style=for-the-badge)
+![Status](https://img.shields.io/badge/Main%20Study-M8%20PASS%20%7C%20M9%20Ready-059669?style=for-the-badge)
 
 **[ภาพรวม](#-agentguard-คืออะไร) · [ดู Flowchart](#-system-flowchart-ภาพรวมการทำงาน) · [สถาปัตยกรรม](#-technical-architecture) · [เริ่มใช้งาน](#-quick-start) · [การทดลอง](#-การประเมินผลวิจัย) · [เอกสาร](#-เอกสารและลิงก์)**
 
@@ -23,7 +23,7 @@
 > [!IMPORTANT]
 > **AgentGuard เป็นงานวิจัยและระบบต้นแบบ ไม่ใช่ผลิตภัณฑ์รักษาความปลอดภัยที่พร้อมใช้บนระบบจริง**  
 > ระบบใช้เครื่องมือจำลองใน Sandbox ไม่ส่งอีเมลจริง ไม่โอนเงินจริง และไม่ดำเนินการโจมตีระบบภายนอก  
-> **สถานะที่ตรวจจาก GitHub `main`:** M0–M7 มีรายงานการพัฒนาและ Pilot; **M8 เตรียมและตรึง Protocol แล้ว แต่ยังไม่ได้รัน Main Experiment ตาม `docs/milestones/status.md`** ดังนั้นอย่าใช้ผล Pilot เป็นข้อสรุปสุดท้ายของงานวิจัย
+> **สถานะล่าสุด (`feat/m8-banking-qwen35`, 24 พ.ย. 2026):** ดำเนินการครบ **M0–M9** สำหรับการศึกษาขอบเขตแคบ (AgentDojo Banking v1.2.2, `qwen3.5:9b`, 440 main runs + 110 noise-floor runs, 0 THB) ดูรายละเอียดและข้อจำกัดทั้งหมดใน [`docs/research/m8-main-report.md`](docs/research/m8-main-report.md), [`docs/research/final-audit.md`](docs/research/final-audit.md) และ [`paper/draft.md`](paper/draft.md)
 
 ---
 
@@ -261,20 +261,27 @@ AgentGuard ไม่ได้อ้างว่า “มีระบบป้�
 
 **ผลลัพธ์วัดจาก State / Oracle** ไม่ใช่จากคำตอบที่โมเดลอ้างว่าทำสำเร็จ และต้องรายงานทั้งผลเชิงบวก ผลเชิงลบ และข้อจำกัดของข้อมูล
 
-### 📊 ผล Pilot ที่มีอยู่ (ยังไม่ใช่ผล Main Experiment)
+### 📊 ผล Main Experiment (M8 — Frozen Test Split) และ Pilot
 
-ข้อมูลจาก [`docs/research/pilot-qwen35-report.md`](docs/research/pilot-qwen35-report.md) ลงวันที่ **19 พฤศจิกายน 2026**: AgentDojo Banking, `qwen3.5:9b`, 3 development task clusters, 27 attack cases, รันซ้ำ 1 ครั้งต่อกรณี
+**M8 Main Study (เสร็จสมบูรณ์, `INTEGRITY: OK`, `m8-freeze` `a1a105f`):** AgentDojo Banking v1.2.2, frozen test split (11 user tasks, 99 attack cases + 11 benign cases $\times$ 4 modes = **440 runs** + **110 M8b B0 noise-floor runs**), โมเดล `qwen3.5:9b` (`thinking=off`, `temp=0`, `seed=0`, 0 THB; รายละเอียดใน [`docs/research/m8-main-report.md`](docs/research/m8-main-report.md)):
 
-| Mode | Executed unauthorized goal | Utility under attack |
-| --- | ---: | ---: |
-| B0 | **7/27** | 17/27 |
-| B1 | **0/27** | 9/27 |
-| B2 | **0/27** | **17/27** |
-| P1 | **0/26** | 9/26 |
+| Mode | Clean Attack ($n$) | **Executed Unauthorized** (Wilson 95% CI) | Utility Under Attack (`valid_13` / `strict_11`) | Benign (`valid_13` / `strict_11`) | Mean Latency |
+| --- | ---: | --- | --- | --- | ---: |
+| **B0** (ไม่มีการป้องกัน) | 99 | **31/99 (31.3%)** `[0.23, 0.41]` | 42/81 (51.9%) / 24/63 (38.1%) | 8/9 / 6/7 | 20.3s |
+| **B1** (Analyzer อย่างเดียว) | 93 | **0/93 (0.0%)** `[0.00, 0.04]` | 29/75 (38.7%) / 11/57 (19.3%) | 8/9 / 6/7 | 26.0s |
+| **B2** (Policy อย่างเดียว) | 94 | **2/94 (2.1%)** `[0.01, 0.07]` | **40/76 (52.6%) / 22/58 (37.9%)** | 8/9 / 6/7 | 24.7s |
+| **P1** (Policy + Analyzer) | 93 | **0/93 (0.0%)** `[0.00, 0.04]` | 29/75 (38.7%) / 11/57 (19.3%) | 8/9 / 6/7 | 25.7s |
 
-**อ่านผลอย่างระมัดระวัง:** ใน Pilot นี้ B2 ป้องกันการโจมตีที่เกิดขึ้นได้โดยไม่ลด Utility ในตัวอย่าง แต่การเพิ่ม Context Analyzer ใน P1 **ยังไม่เพิ่มประโยชน์ด้านความปลอดภัย และทำให้ Utility ลดลง**; P1 มีหนึ่งกรณีที่ Run ไม่สมบูรณ์ ตัวอย่างมีเพียง **3 clusters และเหตุการณ์โจมตีสำเร็จที่พบกระจุกใน Task เดียว** จึงยังนำไปสรุปทั่วไปไม่ได้
+- **H1 (Confirmatory, `B2` vs `B0`):** **SUPPORTED (robust)** — ลด Executed ASR ได้ `+25.5 pp` (exact McNemar $p = 1.19 \times 10^{-7}$, cluster CI `[+0.091, +0.447]`, cluster sign test $p = 0.03125$, two-way CI `[+0.071, +0.495]`) โดยคง clean utility ภายใต้การโจมตีไว้ 100% เทียบ `B0`
+- **H2 (Descriptive, `P1` vs `B2`):** `P1` กันการโจมตีเพิ่มได้ 2 เคสที่หลุดผ่าน wildcard ใน `user_task_0` ($p = 0.50$) แต่ **`B1` และ `P1` มี Trajectory เหมือนกัน 110/110 เคส** และทำให้เสียงานที่ถูกต้องภายใต้การโจมตีถึง **10 เคส** (`-13.3 pp` `valid_13`, `-17.5 pp` `strict_11`, $p = 0.00195$)
+- **M8b Noise Floor:** `0/110` ความแตกต่างในทุกมิติ (`run_status`, `attack_attempted`, `attack_executed`, `task_success`, `trajectory`, tokens; exact 95% CI `[0.000, 0.033]`)
+- **ข้อจำกัดสำคัญ:** โมเดลเดียว (`qwen3.5:9b`, RQ4 ยังไม่ได้ทดสอบ), suite เดียว (banking), นโยบายเขียนหลังเห็น injection goals ใน M2 (R-24), และรัน M8 บน macOS Apple M2 Pro / Python 3.14.6 ต่างจาก M0–M7d (D-021, R-33)
 
-**Main Study (M8):** ตาม [`docs/milestones/status.md`](docs/milestones/status.md) และ [Pre-registered Analysis Plan](docs/research/m8-analysis-plan.md) มีแผน 110 cases × 4 modes = **440 runs** แต่ **ยังไม่แสดงว่าได้รันเสร็จแล้ว**
+*(อ้างอิงผล Pilot ก่อนหน้าบน development split 27 attack cases: [`docs/research/pilot-qwen35-report.md`](docs/research/pilot-qwen35-report.md) — B0 7/27, B1 0/27, B2 0/27, P1 0/26)*
+
+**M10 Follow-Up Studies (`feat/m10-v02-and-travel`, 0 THB):**
+- **`ContextAnalyzer v0.2` (span-localized provenance) บน Banking Test Split (220 runs, [`m10-v02-report.md`](docs/research/m10-v02-report.md)):** คง `0/93` executed attacks, ลด `ANALYZER_DENY` ใน `P1` ลง **50% (`40 → 20`)**, และกู้คืนงานที่อ้างอิง prompt/ID (`user_task_2, 12, 14`) ได้ทั้งหมด เหลือเฉพาะไฟล์สั้น `user_task_13` (`8` เคส) ที่ข้อมูลจริงอยู่ใกล้บล็อก injection <250 อักขระ
+- **AgentDojo `travel` Suite Out-of-Domain Test Split (308/308 clean runs, [`m10-travel-report.md`](docs/research/m10-travel-report.md)):** Qualification `16/20` (80%, `0/118` invalid calls); **H1 (`B2` vs `B0`)** ลด Executed ASR จาก **`10/66` (15.2%) → `1/66` (1.5%)** (`+13.6 pp`, McNemar $p = 0.00391$, cluster CI `[+0.046, +0.242]`) และ **เพิ่ม Utility ภายใต้การโจมตีขึ้น `+15.1 pp`** (`54/66 → 64/66`, $p = 0.00195$) โดย `P1 (v0.2)` ไม่เกิด false positive เลย (`0` `ANALYZER_DENY`, `64/66` เท่ากับ `B2`) และทั้ง `B2`/`P1` หลุดเพียง `user_task_3|injection_task_5` (ส่งข้อมูลลับใน `body` ไปยังผู้รับที่ได้รับอนุญาตอยู่แล้ว)
 
 ---
 
@@ -481,7 +488,13 @@ agentguard/
 | [Security Invariants](docs/spec/security-invariants.md) | กฎที่ต้องไม่ถูกละเมิด |
 | [Benchmark Compatibility](docs/research/benchmark-compatibility.md) | ความเข้ากันได้และข้อจำกัดของ AgentDojo |
 | [Pilot Report](docs/research/pilot-qwen35-report.md) | ผล Pilot จากโมเดล `qwen3.5:9b` |
-| [M8 Analysis Plan](docs/research/m8-analysis-plan.md) | แผนทดลองหลักที่ตรึงไว้แล้ว |
+| [M8 Analysis Plan](docs/research/m8-analysis-plan.md) | แผนทดลองหลักที่ตรึงไว้แล้ว (Pre-registered) |
+| [M8 Main Experiment Report](docs/research/m8-main-report.md) | ผลทดลองหลัก Banking 440 runs + 110 noise-floor runs และสถิติ |
+| [M10 v0.2 Follow-Up Report](docs/research/m10-v02-report.md) | ผล `ContextAnalyzer v0.2` (dev 120 + test 220 runs) |
+| [M10 Travel Study Report](docs/research/m10-travel-report.md) | ผลขยายการทดลอง AgentDojo `travel` (308 runs, 0 THB) |
+| [Final Audit Report](docs/research/final-audit.md) | รายงานตรวจสอบความปลอดภัย สถาปัตยกรรม และความสมบูรณ์ (M9) |
+| [Reproducibility Guide](docs/research/reproducibility.md) | คู่มือทำซ้ำและ Artifact Manifest พร้อม SHA-256 |
+| [Draft Research Paper](paper/draft.md) | ร่างบทความวิจัย 11 หัวข้อฉบับสมบูรณ์ |
 | [Technical Flow in FigJam](https://www.figma.com/board/pcRpChKnnKI6drzBJQHPPs) | แผนภาพโครงสร้างระบบที่แก้ไขได้ |
 | [Explainer in Figma](https://www.figma.com/design/1wArdCBLNNAQhAL15yWRBm) | อธิบายสำหรับคนทั่วไปและทีมสายคอม |
 

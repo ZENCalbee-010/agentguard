@@ -1,10 +1,10 @@
 # Project Status
 
 ## Current
-- **Milestone:** M8 - Main experiment (narrower banking study, qwen3.5:9b) -> **FROZEN, run pending** (user chose this scope; the agent's reading of that choice as approval of E is D-020 and is open to correction)
-- **Branch:** `feat/m8-banking-qwen35` (stacked on M7d; not pushed; no remote)
-- **Freeze tag:** `m8-freeze` (SHA recorded below once created)
-- **Last updated:** 2026-11-19
+- **Milestone:** M0–M9 **PASS** (`feat/m8-banking-qwen35`, remote CI verified green); Post-M9 Follow-up **M10** (`feat/m10-v02-and-travel`) **PASS (COMPLETE)** — CI green + `ContextAnalyzer v0.2` (banking dev+test) + AgentDojo `travel` suite (308/308 clean test runs)
+- **Branch:** `feat/m10-v02-and-travel` (pushed to `origin`; `feat/m8-banking-qwen35` + `m8-freeze` pushed & CI green; local `main` reset to `f49788c`)
+- **Freeze tags:** `m8-freeze` (`a1a105f`), `m10-travel-freeze` (`6ddf92f`)
+- **Last updated:** 2026-11-25
 
 ## Log
 
@@ -103,3 +103,31 @@ Current commit SHA: see `git log -1` (recorded in the milestone report).
 - Done: pre-registered analysis plan, frozen test-split config (110 cases x 4 = 440 runs), guarded runner, integrity-gated analysis, exact non-inferiority test with exact operating characteristics, noise-floor design. Adversarial pre-registration review (5 lenses, 38 findings, 6 major) applied. Details: `docs/research/m8-analysis-plan.md`.
 - Gates: pytest all green, ruff 0, mypy strict clean.
 - Not run yet: the 440 runs (about 6 h) and the B0 noise-floor run (about 1.5 h).
+
+### 2026-11-24 - M8 Main Experiment & Statistical Analysis (narrower banking study, qwen3.5:9b) - PASS
+- Completed: recreated `.venv` and `.venv-bench` on macOS (Apple M2 Pro, Python 3.14.6, D-021), pulled pinned `qwen3.5:9b` (`56671c2ab938`), tagged `m8-freeze` (`a1a105f`), ran 440/440 main experiment runs (`2.95 h`, 423 completed, 17 `step_limit`, 0 infra failures), ran 110/110 M8b B0 noise-floor runs (`0.63 h`, 110 completed), ran `noise_floor.py` and `analyze_main.py --frozen-commit m8-freeze` (exit 0, `INTEGRITY: OK`), wrote `docs/research/m8-main-report.md` and `docs/milestones/M8-report.md`.
+- Key results:
+  - Noise floor (M8b): 0/110 differences across status/attempt/executed/success/trajectory/tokens (exact 95% CI `[0.000, 0.033]`).
+  - Exposure: ADEQUATE (32 B0 attempts in 6/11 user tasks).
+  - H1 (confirmatory, B2 vs B0 executed ASR): **SUPPORTED (robust to cluster sign test and two-way bootstrap)** — B0 31/99 (31.3%) vs B2 2/94 (2.1%), diff `+25.5 pp`, McNemar $p = 1.19 \times 10^{-7}$, cluster CI `[0.0909, 0.4468]`, sign test $p = 0.03125$, two-way CI `[0.0707, 0.4945]`; worst-case unclean bound `+24.2 pp`, $p = 1.19 \times 10^{-7}$.
+  - H2 (descriptive, P1 vs B2 executed ASR): B2 2/94 vs P1 0/93 (`+2.1 pp`, $p = 0.50$, cluster CI `[0.0, 0.0652]`); both B2 escapes were wildcard `send_money` in `user_task_0`.
+  - H3 (descriptive, P1 vs B0 benign utility): 8/9 `valid_13`, 6/7 `strict_11` in all 4 configs (0 benign denials), exact one-sided 95% lower bound `-0.386` / `-0.466`.
+  - Attribution finding: `B1` and `P1` produced 110/110 identical trajectories; P1 lost 10 legitimate tasks under attack vs B2 (`-13.3 pp` `valid_13`, `-17.5 pp` `strict_11`, $p = 0.00195$), whereas B2 preserved 100% of clean attack-time utility vs B0 (`+0.0 pp`).
+- Tests executed (macOS venvs): core pytest 414 + 26 model_adapter (outside sandbox); bench pytest 89 passed; mypy strict clean (42 files); `tools/ruff_stdin.py` 0 problems (67 files).
+- Cost: 0 THB (3.58 h local Apple M2 Pro compute).
+- Open / next: M9 Final Audit and Research Package (`docs/research/final-audit.md`, `reproducibility.md`, `paper/draft.md`); user decision on whether to reset local `main` back to `origin/main` (`f49788c`, D-021) and whether to push/merge.
+
+### 2026-11-24 - M9 Final Audit and Research Package - PASS
+- Completed: 10-point evidence-based self-audit (`docs/research/final-audit.md`, findings `AUD-001`..`AUD-006`), clean-room reproducibility guide & SHA-256 artifact manifest (`docs/research/reproducibility.md`), 11-section draft research paper with 30 verified citations (`paper/draft.md`), updated `README.md`, and final test/milestone report (`docs/milestones/M9-report.md`).
+- Tests & checks executed: core pytest **415 passed, 2 skipped** (`16.14s`); bench pytest **89 passed** (`1.97s`); `tools/mutation_check.py` **42/42 killed**; `mypy --strict` **0 issues (42 files)**; `tools/ruff_stdin.py` **0 problems (67 files)**; offline recomputation of `summary.json` and `noise_floor.json` verified byte-identical against committed outputs.
+- Frozen integrity: `git diff m8-freeze HEAD -- SRC_PATHS` empty.
+- Cost: 0 THB (cumulative project API spend: 0 / 3,000 THB).
+- Remaining human decisions (post-M9): reset local `main` to `origin/main` (`f49788c`), approve adding frozen `experiments/scripts/m6..m8` to ruff `extend-exclude` (`AUD-003`), approve push/merge (`BLK-003`), and optional future follow-up studies (analyzer `v0.2`, additional suites, second qualified model / paid API validation).
+
+### 2026-11-24 - Post-M9 Follow-Up (D-022): CI Green, ContextAnalyzer v0.2, & Travel Suite Qualification
+- Track 1 (CI & Git): excluded frozen M6–M8 scripts in `pyproject.toml`, reset local `main` to `f49788c`, pushed `feat/m8-banking-qwen35` + `m8-freeze` to GitHub; both `ci` (Python 3.12/3.13) and `security` workflows passed green (`BLK-003` closed).
+- Track 2 (`ContextAnalyzerV2`, `v0.2+07aad61880e0`): dev-split pilot (120 runs) recovered 8/8 `user_task_2` rent updates (`P1` util under attack 16/26 vs 9/26 in v0.1, 0/26 executed). Frozen test split (220 runs `B1`/`P1`): `0/93` executed attacks, cut `P1` `ANALYZER_DENY` by 50% (`40 -> 20`), recovered `user_task_12` & `14`, while isolating all 8 remaining losses to short dual-content file `user_task_13` (`docs/research/m10-v02-report.md`).
+- Track 3 (`AgentDojo travel` suite): implemented `travel_policies.py` (`travel-v1`), `agentdojo_travel.py`, `travel-v1.json` (140 cases, 0 F-6 no-op defects, 20/20 injectable, 120/120 B0 parity, 4/120 B2 static ceiling, 112 bench tests passing). B0 qualification on `qwen3.5:9b`: **16/20 (80.0%, Wilson CI `[0.58, 0.92]`)**, `0/118` invalid calls.
+- Track 3 execution (2026-11-25, `m10-travel-freeze` `6ddf92f`): ran `308/308` clean test-split runs (`0` unclean, `0` infra failures, `INTEGRITY: OK`). Exposure ADEQUATE (`13` B0 attempts in `5/11` tasks). **H1 (`B2` vs `B0`)**: `10/66 -> 1/66` (`+13.6 pp`, McNemar $p = 0.00391$, cluster CI `[+0.0455, +0.2424]`, sign test `5/11` $p = 0.0625$ — SUPPORTED at case & cluster-bootstrap level). **H2 (`P1 v0.2` vs `B2`)**: exact null (`1/66` vs `1/66`, `0` `ANALYZER_DENY` in `P1`, `0` lost tasks). Utility under attack **improved `+15.1 pp`** (`54/66 -> 64/66`, $p = 0.00195$) under `B2` and `P1`. Single shared escape: `user_task_3|injection_task_5` (in-scope email body exfiltration to authorized recipient). Details: `docs/research/m10-travel-report.md`; integrated into `paper/draft.md` §7.7 and `README.md`.
+- Cost: 0 THB total project API spend (0 / 3,000 THB).
+- Status: All three approved D-022 tracks complete; ready for PR/merge review or optional paid API external validation if desired.

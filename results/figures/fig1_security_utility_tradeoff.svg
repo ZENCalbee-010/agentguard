@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="420" viewBox="0 0 840 420" role="img" aria-label="Figure 1: Security vs Utility Under Attack across B0, B1, B2, P1">
+<style>
+  text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; fill: #0F172A; }
+  .title { font-size: 16px; font-weight: 700; }
+  .subtitle { font-size: 11.5px; fill: #475569; }
+  .axis { font-size: 11px; fill: #334155; }
+  .val { font-size: 10.5px; font-weight: 600; fill: #0F172A; }
+  .legend { font-size: 11px; fill: #1E293B; }
+  .grid { stroke: #E2E8F0; stroke-width: 1; }
+  .axis-line { stroke: #94A3B8; stroke-width: 1.2; }
+</style>
+<rect width="840" height="420" fill="#FFFFFF"/>
+<text x="70" y="30" class="title">Figure 1. Security vs. Utility Under Attack (M8 Frozen Test Split, qwen3.5:9b)</text>
+<text x="70" y="49" class="subtitle">Executed Unauthorized ASR (lower is safer) vs. Clean Task Utility Under Attack (higher is better); n = clean runs per configuration</text>
+<rect x="70" y="60" width="12" height="12" rx="2" fill="#DC2626"/>
+<text x="87" y="70" class="legend">Executed ASR (all attack)</text>
+<rect x="305" y="60" width="12" height="12" rx="2" fill="#059669"/>
+<text x="322" y="70" class="legend">Utility Under Attack (valid_13)</text>
+<rect x="540" y="60" width="12" height="12" rx="2" fill="#2563EB"/>
+<text x="557" y="70" class="legend">Utility Under Attack (strict_11)</text>
+<line x1="70" y1="335.0" x2="810" y2="335.0" class="grid"/>
+<text x="60" y="339.0" text-anchor="end" class="axis">0%</text>
+<line x1="70" y1="298.9" x2="810" y2="298.9" class="grid"/>
+<text x="60" y="302.9" text-anchor="end" class="axis">10%</text>
+<line x1="70" y1="262.7" x2="810" y2="262.7" class="grid"/>
+<text x="60" y="266.7" text-anchor="end" class="axis">20%</text>
+<line x1="70" y1="226.6" x2="810" y2="226.6" class="grid"/>
+<text x="60" y="230.6" text-anchor="end" class="axis">30%</text>
+<line x1="70" y1="190.4" x2="810" y2="190.4" class="grid"/>
+<text x="60" y="194.4" text-anchor="end" class="axis">40%</text>
+<line x1="70" y1="154.3" x2="810" y2="154.3" class="grid"/>
+<text x="60" y="158.3" text-anchor="end" class="axis">50%</text>
+<line x1="70" y1="118.1" x2="810" y2="118.1" class="grid"/>
+<text x="60" y="122.1" text-anchor="end" class="axis">60%</text>
+<line x1="70" y1="82.0" x2="810" y2="82.0" class="grid"/>
+<text x="60" y="86.0" text-anchor="end" class="axis">70%</text>
+<line x1="70" y1="335" x2="810" y2="335" class="axis-line"/>
+<rect x="94.5" y="221.8" width="40" height="113.2" rx="3" fill="#DC2626"/>
+<text x="114.5" y="206.8" text-anchor="middle" class="val">31.3%</text>
+<text x="114.5" y="217.8" text-anchor="middle" class="subtitle">31/99</text>
+<rect x="142.5" y="147.6" width="40" height="187.4" rx="3" fill="#059669"/>
+<text x="162.5" y="132.6" text-anchor="middle" class="val">51.9%</text>
+<text x="162.5" y="143.6" text-anchor="middle" class="subtitle">42/81</text>
+<rect x="190.5" y="197.3" width="40" height="137.7" rx="3" fill="#2563EB"/>
+<text x="210.5" y="182.3" text-anchor="middle" class="val">38.1%</text>
+<text x="210.5" y="193.3" text-anchor="middle" class="subtitle">24/63</text>
+<text x="162.5" y="359" text-anchor="middle" class="val">B0 (No Defense)</text>
+<rect x="279.5" y="335.0" width="40" height="1.5" rx="3" fill="#DC2626"/>
+<text x="299.5" y="320.0" text-anchor="middle" class="val">0.0%</text>
+<text x="299.5" y="331.0" text-anchor="middle" class="subtitle">0/93</text>
+<rect x="327.5" y="195.2" width="40" height="139.8" rx="3" fill="#059669"/>
+<text x="347.5" y="180.2" text-anchor="middle" class="val">38.7%</text>
+<text x="347.5" y="191.2" text-anchor="middle" class="subtitle">29/75</text>
+<rect x="375.5" y="265.3" width="40" height="69.7" rx="3" fill="#2563EB"/>
+<text x="395.5" y="250.3" text-anchor="middle" class="val">19.3%</text>
+<text x="395.5" y="261.3" text-anchor="middle" class="subtitle">11/57</text>
+<text x="347.5" y="359" text-anchor="middle" class="val">B1 (Analyzer Only)</text>
+<rect x="464.5" y="327.3" width="40" height="7.7" rx="3" fill="#DC2626"/>
+<text x="484.5" y="312.3" text-anchor="middle" class="val">2.1%</text>
+<text x="484.5" y="323.3" text-anchor="middle" class="subtitle">2/94</text>
+<rect x="512.5" y="144.8" width="40" height="190.2" rx="3" fill="#059669"/>
+<text x="532.5" y="129.8" text-anchor="middle" class="val">52.6%</text>
+<text x="532.5" y="140.8" text-anchor="middle" class="subtitle">40/76</text>
+<rect x="560.5" y="197.9" width="40" height="137.1" rx="3" fill="#2563EB"/>
+<text x="580.5" y="182.9" text-anchor="middle" class="val">37.9%</text>
+<text x="580.5" y="193.9" text-anchor="middle" class="subtitle">22/58</text>
+<text x="532.5" y="359" text-anchor="middle" class="val">B2 (Policy Only)</text>
+<rect x="649.5" y="335.0" width="40" height="1.5" rx="3" fill="#DC2626"/>
+<text x="669.5" y="320.0" text-anchor="middle" class="val">0.0%</text>
+<text x="669.5" y="331.0" text-anchor="middle" class="subtitle">0/93</text>
+<rect x="697.5" y="195.2" width="40" height="139.8" rx="3" fill="#059669"/>
+<text x="717.5" y="180.2" text-anchor="middle" class="val">38.7%</text>
+<text x="717.5" y="191.2" text-anchor="middle" class="subtitle">29/75</text>
+<rect x="745.5" y="265.3" width="40" height="69.7" rx="3" fill="#2563EB"/>
+<text x="765.5" y="250.3" text-anchor="middle" class="val">19.3%</text>
+<text x="765.5" y="261.3" text-anchor="middle" class="subtitle">11/57</text>
+<text x="717.5" y="359" text-anchor="middle" class="val">P1 (Policy + Analyzer)</text>
+<text x="70" y="402" class="subtitle">Source: results/metrics/m8-banking-qwen35/summary.json (m8-freeze a1a105f). H1 (B2 vs B0): p = 1.19e-7 (SUPPORTED, robust). P1 vs B2 utility (strict_11): -17.5 pp, p = 0.00195.</text>
+</svg>

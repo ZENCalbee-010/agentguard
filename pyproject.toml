@@ -43,9 +43,15 @@ markers = [
 line-length = 100
 target-version = "py312"
 src = ["src", "tests"]
-# M2 evidence scripts are kept verbatim: committed evidence files in docs/research/evidence/
-# were produced by exactly these scripts, so they are excluded from lint/format on purpose.
-extend-exclude = ["experiments/scripts/m2", "external"]
+# Frozen experiment evidence scripts (M2, M6-M8) are kept verbatim to preserve m8-freeze provenance
+# (decision D-022 / AUD-003), so they are excluded from lint/format on purpose.
+extend-exclude = [
+    "experiments/scripts/m2",
+    "experiments/scripts/m6",
+    "experiments/scripts/m7",
+    "experiments/scripts/m8",
+    "external",
+]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF"]
