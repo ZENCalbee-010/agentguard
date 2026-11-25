@@ -279,6 +279,10 @@ AgentGuard ไม่ได้อ้างว่า “มีระบบป้�
 
 *(อ้างอิงผล Pilot ก่อนหน้าบน development split 27 attack cases: [`docs/research/pilot-qwen35-report.md`](docs/research/pilot-qwen35-report.md) — B0 7/27, B1 0/27, B2 0/27, P1 0/26)*
 
+**M10 Follow-Up Studies (`feat/m10-v02-and-travel`, 0 THB):**
+- **`ContextAnalyzer v0.2` (span-localized provenance) บน Banking Test Split (220 runs, [`m10-v02-report.md`](docs/research/m10-v02-report.md)):** คง `0/93` executed attacks, ลด `ANALYZER_DENY` ใน `P1` ลง **50% (`40 → 20`)**, และกู้คืนงานที่อ้างอิง prompt/ID (`user_task_2, 12, 14`) ได้ทั้งหมด เหลือเฉพาะไฟล์สั้น `user_task_13` (`8` เคส) ที่ข้อมูลจริงอยู่ใกล้บล็อก injection <250 อักขระ
+- **AgentDojo `travel` Suite Out-of-Domain Test Split (308/308 clean runs, [`m10-travel-report.md`](docs/research/m10-travel-report.md)):** Qualification `16/20` (80%, `0/118` invalid calls); **H1 (`B2` vs `B0`)** ลด Executed ASR จาก **`10/66` (15.2%) → `1/66` (1.5%)** (`+13.6 pp`, McNemar $p = 0.00391$, cluster CI `[+0.046, +0.242]`) และ **เพิ่ม Utility ภายใต้การโจมตีขึ้น `+15.1 pp`** (`54/66 → 64/66`, $p = 0.00195$) โดย `P1 (v0.2)` ไม่เกิด false positive เลย (`0` `ANALYZER_DENY`, `64/66` เท่ากับ `B2`) และทั้ง `B2`/`P1` หลุดเพียง `user_task_3|injection_task_5` (ส่งข้อมูลลับใน `body` ไปยังผู้รับที่ได้รับอนุญาตอยู่แล้ว)
+
 ---
 
 ## 🚀 Quick Start
@@ -485,7 +489,9 @@ agentguard/
 | [Benchmark Compatibility](docs/research/benchmark-compatibility.md) | ความเข้ากันได้และข้อจำกัดของ AgentDojo |
 | [Pilot Report](docs/research/pilot-qwen35-report.md) | ผล Pilot จากโมเดล `qwen3.5:9b` |
 | [M8 Analysis Plan](docs/research/m8-analysis-plan.md) | แผนทดลองหลักที่ตรึงไว้แล้ว (Pre-registered) |
-| [M8 Main Experiment Report](docs/research/m8-main-report.md) | ผลทดลองหลัก 440 runs + 110 noise-floor runs และสถิติ |
+| [M8 Main Experiment Report](docs/research/m8-main-report.md) | ผลทดลองหลัก Banking 440 runs + 110 noise-floor runs และสถิติ |
+| [M10 v0.2 Follow-Up Report](docs/research/m10-v02-report.md) | ผล `ContextAnalyzer v0.2` (dev 120 + test 220 runs) |
+| [M10 Travel Study Report](docs/research/m10-travel-report.md) | ผลขยายการทดลอง AgentDojo `travel` (308 runs, 0 THB) |
 | [Final Audit Report](docs/research/final-audit.md) | รายงานตรวจสอบความปลอดภัย สถาปัตยกรรม และความสมบูรณ์ (M9) |
 | [Reproducibility Guide](docs/research/reproducibility.md) | คู่มือทำซ้ำและ Artifact Manifest พร้อม SHA-256 |
 | [Draft Research Paper](paper/draft.md) | ร่างบทความวิจัย 11 หัวข้อฉบับสมบูรณ์ |

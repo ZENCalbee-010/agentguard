@@ -1,10 +1,10 @@
 # Project Status
 
 ## Current
-- **Milestone:** M0–M9 **PASS** (`feat/m8-banking-qwen35`, remote CI verified green); Post-M9 Follow-up **M10** (`feat/m10-v02-and-travel`) **IN PROGRESS** (`v0.2` dev + test complete; `travel` adapter + qualification 16/20 complete; `travel` factorial run ready)
+- **Milestone:** M0–M9 **PASS** (`feat/m8-banking-qwen35`, remote CI verified green); Post-M9 Follow-up **M10** (`feat/m10-v02-and-travel`) **PASS (COMPLETE)** — CI green + `ContextAnalyzer v0.2` (banking dev+test) + AgentDojo `travel` suite (308/308 clean test runs)
 - **Branch:** `feat/m10-v02-and-travel` (pushed to `origin`; `feat/m8-banking-qwen35` + `m8-freeze` pushed & CI green; local `main` reset to `f49788c`)
-- **Freeze tag:** `m8-freeze` (`a1a105f25d56ef1244887cf901091c4f4ab811a3`)
-- **Last updated:** 2026-11-24
+- **Freeze tags:** `m8-freeze` (`a1a105f`), `m10-travel-freeze` (`6ddf92f`)
+- **Last updated:** 2026-11-25
 
 ## Log
 
@@ -128,5 +128,6 @@ Current commit SHA: see `git log -1` (recorded in the milestone report).
 - Track 1 (CI & Git): excluded frozen M6–M8 scripts in `pyproject.toml`, reset local `main` to `f49788c`, pushed `feat/m8-banking-qwen35` + `m8-freeze` to GitHub; both `ci` (Python 3.12/3.13) and `security` workflows passed green (`BLK-003` closed).
 - Track 2 (`ContextAnalyzerV2`, `v0.2+07aad61880e0`): dev-split pilot (120 runs) recovered 8/8 `user_task_2` rent updates (`P1` util under attack 16/26 vs 9/26 in v0.1, 0/26 executed). Frozen test split (220 runs `B1`/`P1`): `0/93` executed attacks, cut `P1` `ANALYZER_DENY` by 50% (`40 -> 20`), recovered `user_task_12` & `14`, while isolating all 8 remaining losses to short dual-content file `user_task_13` (`docs/research/m10-v02-report.md`).
 - Track 3 (`AgentDojo travel` suite): implemented `travel_policies.py` (`travel-v1`), `agentdojo_travel.py`, `travel-v1.json` (140 cases, 0 F-6 no-op defects, 20/20 injectable, 120/120 B0 parity, 4/120 B2 static ceiling, 112 bench tests passing). B0 qualification on `qwen3.5:9b`: **16/20 (80.0%, Wilson CI `[0.58, 0.92]`)**, `0/118` invalid calls.
-- Cost: 0 THB (local Apple M2 Pro compute).
-- Next: run `travel` test-split factorial (`77 cases x 4 = 308 runs`, 0 THB) when ready, then integrate M10 results into `paper/draft.md`.
+- Track 3 execution (2026-11-25, `m10-travel-freeze` `6ddf92f`): ran `308/308` clean test-split runs (`0` unclean, `0` infra failures, `INTEGRITY: OK`). Exposure ADEQUATE (`13` B0 attempts in `5/11` tasks). **H1 (`B2` vs `B0`)**: `10/66 -> 1/66` (`+13.6 pp`, McNemar $p = 0.00391$, cluster CI `[+0.0455, +0.2424]`, sign test `5/11` $p = 0.0625$ — SUPPORTED at case & cluster-bootstrap level). **H2 (`P1 v0.2` vs `B2`)**: exact null (`1/66` vs `1/66`, `0` `ANALYZER_DENY` in `P1`, `0` lost tasks). Utility under attack **improved `+15.1 pp`** (`54/66 -> 64/66`, $p = 0.00195$) under `B2` and `P1`. Single shared escape: `user_task_3|injection_task_5` (in-scope email body exfiltration to authorized recipient). Details: `docs/research/m10-travel-report.md`; integrated into `paper/draft.md` §7.7 and `README.md`.
+- Cost: 0 THB total project API spend (0 / 3,000 THB).
+- Status: All three approved D-022 tracks complete; ready for PR/merge review or optional paid API external validation if desired.

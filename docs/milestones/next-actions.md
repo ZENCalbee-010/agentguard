@@ -1,13 +1,8 @@
 # Next Actions
 
-All planned milestones (**M0–M9**) for the approved narrower banking study (`qwen3.5:9b`, AgentDojo banking v1.2.2) are **PASS / COMPLETE** on branch `feat/m8-banking-qwen35`.
+All milestones (**M0–M9**) and all three user-approved post-M9 follow-up tracks (**M10 / D-022**: remote CI verification, `ContextAnalyzer v0.2`, and cross-suite AgentDojo `travel` evaluation) are **PASS / COMPLETE** with **0 THB** API spend (`0 / 3,000 THB`).
 
-## Pending Human Decisions (No Action Taken Without Approval)
-1. **Git `main` cleanup (`AUD-005` / `D-021`):** Confirm whether to reset local `main` from `f79fa70` back to `origin/main` (`f49788c`) before merging or pushing.
-2. **CI lint scope (`AUD-003`):** Approve adding `experiments/scripts/m6`, `m7`, `m8` to `extend-exclude` in `pyproject.toml` (matching `m2`) so GitHub Actions `ruff check .` passes without touching frozen protocol scripts.
-3. **Push / merge & remote CI (`BLK-003` / `AUD-004`):** Approve pushing `feat/m8-banking-qwen35` (and optionally tag `m8-freeze`) to remote to verify `.github/workflows/{ci,security}.yml`.
-4. **Full-text related-work check before external paper submission:** Verify abstract-only matrix cells for DRIFT, IGTA, Progent, and LlamaFirewall against full PDFs before submitting `paper/draft.md`.
-
-## Optional Future Research Extensions (Out of Current Frozen Scope)
-- **Analyzer v0.2 (`AUD-001` / `R-28`):** Design and tune an argument-scoped provenance detector on the development split only (restricting `ANALYZER_DENY` to wildcard/tainted parameters) to eliminate the `-13.3` to `-17.5 pp` attack-time utility loss.
-- **Cross-model & cross-suite generalization (`RQ4` / `R-30`):** Evaluate additional qualified local models or an approved paid API model (within the 3,000 THB budget, currently 0 THB spent) and adapt AgentDojo `workspace`, `travel`, and `slack` suites.
+## Optional Pending Human Decisions (No Action Taken Without Approval)
+1. **Merge to `main`:** Review and merge `feat/m10-v02-and-travel` (which includes `feat/m8-banking-qwen35`) into `main` via GitHub Pull Request after verifying green CI on `feat/m10-v02-and-travel`.
+2. **External Model Validation (RQ4 — Optional, within 3,000 THB budget):** Run a second qualified model (either a newly pulled ~14B+ local model or an explicitly approved low-cost API model) on banking and/or travel test splits to test cross-model consistency.
+3. **Full-text Related-Work Check Before External Submission:** Verify abstract-only cells for DRIFT, IGTA, Progent, and LlamaFirewall against full PDFs before submitting `paper/draft.md`.

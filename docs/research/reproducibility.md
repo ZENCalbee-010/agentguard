@@ -118,3 +118,5 @@ ollama list   # verify ID starts with 56671c2ab938
 | Final audit | Evidence-based audit (architecture, invariants, integrity) | `docs/research/final-audit.md` | — |
 | Draft paper | 11-section research paper draft | `paper/draft.md` | — |
 | Publication figures | 3 SVG charts generated from `summary.json` | `results/figures/fig{1,2,3}_*.svg` | `experiments/scripts/m9/generate_figures.py` |
+| M10 banking `v0.2` dev/test | Post-M8 span-localized analyzer follow-up | `results/raw/m10-banking-v02-{dev,test}/qwen3.5_9b-think-off.jsonl`, `docs/research/m10-v02-report.md` | `v0.2+07aad61880e0` |
+| M10 travel qualification & test | Out-of-domain `travel` suite (20 qual + 308 test) | `results/raw/m10-travel-test/qwen3.5_9b-v02.jsonl`, `results/metrics/m10-travel-test/summary.json`, `docs/research/m10-travel-report.md` | raw `85d9cb0eade96c49`, summary `d6280422d1efd141` |
